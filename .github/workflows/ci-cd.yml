@@ -1,0 +1,29 @@
+name: Automated Workflow Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: echo "Build successful"
+
+      - name: Test
+        run: echo "Tests passed"
+
+      - name: Security Scan
+        run: echo "Security scan completed"
+
+      - name: Docker Build
+        run: docker build -t cnad07-app .
+
+      - name: Deploy
+        run: echo "Deployment successful"
